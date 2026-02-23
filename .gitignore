@@ -15,6 +15,7 @@ backend/uploads/*
 
 # Environment variables
 .env
+docker-compose.yml
 
 # IDE settings
 .vscode/
