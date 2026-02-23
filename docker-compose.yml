@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/uploads:/app/backend/uploads
+      - ./backend/payment_extractor.db:/app/backend/payment_extractor.db
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

@@ -1,0 +1,25 @@
+# Python dependencies
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+*.db
+backend/database.db
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Environment variables
+.env
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

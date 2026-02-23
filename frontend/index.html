@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Payment Details Extractor — Upload UPI screenshots, extract and track payment details">
+    <title>Payment Extractor — Sign In</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <!-- Login Card -->
+        <div id="login-card" class="card auth-card">
+            <div class="auth-logo">
+                <div class="logo-icon">💳</div>
+                <h1>Payment Extractor</h1>
+                <p>Upload UPI screenshots & track payments</p>
+            </div>
+
+            <div id="login-error" class="auth-error"></div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" class="form-control" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Sign In</button>
+            </form>
+
+            <div class="auth-toggle">
+                Don't have an account? <a href="#" id="show-register">Create one</a>
+            </div>
+        </div>
+
+        <!-- Register Card -->
+        <div id="register-card" class="card auth-card hidden">
+            <div class="auth-logo">
+                <div class="logo-icon">💳</div>
+                <h1>Create Account</h1>
+                <p>Sign up to start tracking payments</p>
+            </div>
+
+            <div id="register-error" class="auth-error"></div>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" class="form-control" placeholder="Choose a username" required minlength="3">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm">Confirm Password</label>
+                    <input type="password" id="reg-confirm" class="form-control" placeholder="Re-enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Create Account</button>
+            </form>
+
+            <div class="auth-toggle">
+                Already have an account? <a href="#" id="show-login">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Payment Dashboard — View and manage your extracted payment details">
+    <title>Payment Extractor — Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Mobile hamburger -->
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="sidebar-overlay"></div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">💳</div>
+                <h1>Payment Extractor<span>Track your UPI payments</span></h1>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Menu</div>
+                <div class="nav-item active" data-page="dashboard.html">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-page="upload.html">
+                    <span class="nav-icon">📤</span>
+                    <span>Upload Screenshot</span>
+                </div>
+
+                <div class="nav-section-label">Sports Categories</div>
+                <div id="sports-nav"></div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">U</div>
+                    <div class="user-details">
+                        <div class="name">User</div>
+                        <div class="email">user@example.com</div>
+                    </div>
+                </div>
+                <div class="nav-item" id="logout-btn" style="margin-top:8px;color:var(--danger)">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Dashboard</h1>
+                <p>Overview of your payment records</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon purple">📋</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="stat-total">0</div>
+                        <div class="stat-label">Total Payments</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">💰</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="stat-amount">₹0</div>
+                        <div class="stat-label">Total Amount</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon cyan">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="stat-completed">0</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon amber">🏆</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="stat-sports">0</div>
+                        <div class="stat-label">Sports Used</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Payment Records</h2>
+                    <a href="upload.html" class="btn btn-primary btn-sm">📤 Upload New</a>
+                </div>
+
+                <div class="filters-bar">
+                    <select id="filter-sport" class="form-control">
+                        <option value="">All Sports</option>
+                    </select>
+                    <select id="filter-status" class="form-control">
+                        <option value="">All Status</option>
+                        <option value="success">Success</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                    <div class="search-input">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="filter-search" class="form-control" placeholder="Search payments...">
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Screenshot</th>
+                                <th>Transaction ID</th>
+                                <th>Amount</th>
+                                <th>Receiver</th>
+                                <th>Sport</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payments-tbody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-icon">📭</div>
+                    <h3>No payments yet</h3>
+                    <p>Upload a UPI payment screenshot to get started</p>
+                    <a href="upload.html" class="btn btn-primary">📤 Upload Screenshot</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Payment Detail Modal -->
+    <div id="payment-modal" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Payment Details</h2>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
