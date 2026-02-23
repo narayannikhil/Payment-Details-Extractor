@@ -198,12 +198,13 @@ docker-compose up --build
 
 ## 🖼️ Screenshots
 
-After running the application:
+### 1. Dashboard Overview
+![Dashboard](media/dashboard.png)
+*The main dashboard showcasing tracked payments, stats, and filters.*
 
-1. **Login Page** — Clean glassmorphism auth form
-2. **Dashboard** — Stats overview, payment table with filters
-3. **Upload Page** — Drag-and-drop zone with OCR result display
-4. **Payment Detail** — Full extracted info with screenshot preview
+### 2. Upload & Extract
+![Upload Page](media/upload.png)
+*Modern drag-and-drop interface with sport category selection and real-time OCR feedback.*
 
 ---
 
